@@ -1,6 +1,8 @@
 package com.example.firebase64.models
 
-class User {
+import java.io.Serializable
+
+class User : Serializable {
 
     var displayName: String = ""
     var uid: String = ""

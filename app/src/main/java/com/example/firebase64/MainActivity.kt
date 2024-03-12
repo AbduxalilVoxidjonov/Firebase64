@@ -33,7 +33,9 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+
         firebaseAuth = FirebaseAuth.getInstance()
+
         firebaseDatabase = FirebaseDatabase.getInstance()
         reference = firebaseDatabase.getReference("users")
 
@@ -54,6 +56,7 @@ class MainActivity : AppCompatActivity() {
                 .addOnCompleteListener(this) {
                     Toast.makeText(this, "Signed Out", Toast.LENGTH_SHORT).show()
                 }
+            firebaseAuth.signOut()
         }
     }
 
@@ -74,9 +77,10 @@ class MainActivity : AppCompatActivity() {
                 account?.email.toString(),
                 account?.photoUrl.toString()
             )
-            reference.child(user.uid?:"").setValue(user)
+            reference.child(user.uid ?: "").setValue(user)
                 .addOnSuccessListener {
                     val intent = Intent(this, UserActivity::class.java)
+                    intent.putExtra("uid", user.uid)
                     startActivity(intent)
                 }
 
