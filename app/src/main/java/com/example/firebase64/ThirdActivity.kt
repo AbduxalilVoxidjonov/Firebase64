@@ -21,8 +21,10 @@ class ThirdActivity : AppCompatActivity() {
         reference = storage.getReference("images")
 
         binding.apply {
+
             button.setOnClickListener {
-                launcher.launch("image/*")
+//                launcher.launch("image/*")
+                throw RuntimeException("Test Crash") // Force a crash
             }
 
 

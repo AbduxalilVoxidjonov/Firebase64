@@ -2,6 +2,7 @@ plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
     id("com.google.gms.google-services")
+    id("com.google.firebase.crashlytics")
 }
 
 android {
@@ -50,6 +51,7 @@ dependencies {
     implementation("com.google.firebase:firebase-database:20.3.1")
     implementation("com.google.firebase:firebase-firestore:24.10.3")
     implementation("com.google.firebase:firebase-storage:20.3.0")
+    implementation("com.google.firebase:firebase-crashlytics:18.6.2")
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
